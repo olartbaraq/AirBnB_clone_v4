@@ -159,7 +159,7 @@ Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://tw
 Jhoan Zamora - [Github](https://github.com/jzamora5) / [Twitter](https://twitter.com/JhoanZamora10)  
 David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twitter.com/disartDave)
 Akanbi Mubaraq -[Github](https://github.com/olartbaraq) / [Twitter](https://twitter.com/muba_sekiro)
-
+Gideon Mokaya -[Github]https://github.com/Ogega254/alx-low_level_programming
 
 Second part of Airbnb: Joann Vuong
 ## License
