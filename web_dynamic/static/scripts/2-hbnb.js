@@ -1,25 +1,33 @@
-$(document).ready(function() {
-    let checkboxAmenities = {};
-    $(document).on('change', "input[type='checkbox']", function() {
-	if (this.checked) {
-	    checkboxAmenities[$(this).data('id')] = $(this).data('name');
-	} else {
-	    delete checkboxAmenities[$(this).data('id')];
+// Script that is executed only when DOM is loaded with jQuery
+
+let checked_box = {};
+$(document).ready(function () {
+    $('input:checkbox').change(function () {
+	if ($(this).is(':checked_box')) {
+	    checked_box[$(this).data('id')] = $(this).data('name');
 	}
-	let list = Object.values(checkboxAmenities);
-	if (list.length > 0) {
-	    $('div.amenities > h4').text(Object.values(checkboxAmenities).join(', '));
-	} else {
-	    $('div.amenities > h4').html('&nbsp;');
+	else {
+	    delete checked_box[$(this).data('id')];
 	}
+	$('div.amenities h4').html(function () {
+	    let amenities = [];
+	    Object.keys(checked_box).forEach(function (key) {
+		amenities.push(checked_box[key]);
+	    });
+	    if (amenities.length === 0) {
+		return ('&nbsp');
+	    }
+	    return (amenities.join(', '));
+	});
     });
-    $.get("http://0.0.0.0:5001/api/v1/status/", function(data, docStatus) {
-      if (docStatus === 'success') {
-	if (data.status === 'OK') {
-	  $('#api_status').addClass('available');
-	} else {
-	  $('#api_status').removeClass('available');
-	}
-      }
-    });
-});
+
+
+const apiStatus = $('DIV#api_status');
+$.ajax('http://0.0.0.0:5001/api/v1/status/').done(function (data) {
+    if (data.status === 'OK') {
+      apiStatus.addClass('available');
+    } else {
+      apiStatus.removeClass('available');
+    }
+  });
+  });
